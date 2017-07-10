@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+set -x
 
 echo
 echo "===> Build started at $(date)"
@@ -14,9 +15,9 @@ function finish {
 trap finish EXIT
 
 echo "---> Preparing source..."
-mkdir -p $SOURCE/github.com/dhlparcel/
+mkdir -p $SOURCE/github.com/dhlparcel/flow-address-service
 
-cp -Rf /tmp/src/. $SOURCE/github.com/dhlparcel/
+cp -Rf /tmp/src/. $SOURCE/github.com/dhlparcel/flow-address-service
 
 cd $SOURCE/github.com/dhlparcel/flow-address-service/address-service
 
