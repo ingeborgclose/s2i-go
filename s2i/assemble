@@ -25,10 +25,13 @@ echo "---> Downloading dependencies..."
 
 echo "---> Building application source..."
 go build -v -o main
-go install main
+#go install main
+mkdir -p $GOPATH/bin
+mv main $GOPATH/bin
 
 echo
 echo "===> Build completed at $(date)"
 
 # Fix source directory permissions
 fix-permissions ./
+fix-permissions $GOPATH/bin
