@@ -21,7 +21,7 @@ cp -Rf /tmp/src/. $SOURCE
 cd $SOURCE
 
 echo "---> Downloading dependencies..."
-go get -v ./...
+#go get -v ./...
 
 echo "---> Building application source..."
 go build -v -o main
