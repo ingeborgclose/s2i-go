@@ -16,18 +16,21 @@ trap finish EXIT
 echo "---> Preparing source..."
 mkdir -p $SOURCE
 
-cp -Rf /tmp/src/. $SOURCE
+cp -Rf /tmp/src/. $SOURCE/github.com/dhlparcel/
 
-cd $SOURCE
+cd $SOURCE/github.com/dhlparcel/flow-address-service/address-service
 
 echo "---> Downloading dependencies..."
 #go get -v ./...
 
 echo "---> Building application source..."
-go build -v -o main
+#cd $GO_BUILD_DIR
+
+make
+#go build -v -o main
 #go install main
 mkdir -p $GOPATH/bin
-mv main $GOPATH/bin
+mv address-service $GOPATH/bin
 
 echo
 echo "===> Build completed at $(date)"
