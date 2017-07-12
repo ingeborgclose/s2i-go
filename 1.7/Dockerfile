@@ -28,6 +28,13 @@ RUN yum install -y centos-release-scl && \
     yum clean all -y && \
     (curl -L https://storage.googleapis.com/golang/go${GO_VERSION}${GO_PATCH_VERSION:+.}${GO_PATCH_VERSION}.linux-amd64.tar.gz | \
         tar -xz -C /usr/local)
+        
+RUN yum install -y epel-release
+RUN yum install -y yum-utils && \
+    yum makecache fast
+RUN curl --silent --location https://rpm.nodesource.com/setup_6.x | bash - && \
+    yum -y install nodejs       
+    
 
 # Copy the S2I scripts from the specific language image to $STI_SCRIPTS_PATH
 COPY ./s2i/ $STI_SCRIPTS_PATH
