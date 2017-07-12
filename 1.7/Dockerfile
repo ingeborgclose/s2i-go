@@ -39,5 +39,7 @@ RUN curl --silent --location https://rpm.nodesource.com/setup_6.x | bash - && \
 # Copy the S2I scripts from the specific language image to $STI_SCRIPTS_PATH
 COPY ./s2i/ $STI_SCRIPTS_PATH
 
+USER 1001
+
 # Set the default CMD to print the usage of the language image
 CMD $STI_SCRIPTS_PATH/usage
