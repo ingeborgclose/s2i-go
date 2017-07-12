@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd $GOBIN
+
 set -e
 
-exec $GOBIN/address-service
+exec ./address-service
