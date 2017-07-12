@@ -35,6 +35,7 @@ RUN yum install -y yum-utils && \
 RUN curl --silent --location https://rpm.nodesource.com/setup_6.x | bash - && \
     yum -y install nodejs
 RUN npm install -g typescript typings    
+RUN chmod -R 777 /opt/app-root
 
 # Copy the S2I scripts from the specific language image to $STI_SCRIPTS_PATH
 COPY ./s2i/ $STI_SCRIPTS_PATH
