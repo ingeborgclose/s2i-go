@@ -33,6 +33,19 @@ make
 mkdir -p $GOPATH/bin
 mv address-service $GOPATH/bin
 
+cd ../address-service-ui
+sed -i 's/runningInProduction = false/runningInProduction = true/' app/environment.ts
+npm install -g typescript typings
+npm install
+typings install
+npm run tsc
+rm -rf address-ui-dist && mkdir address-ui-dist
+cp index.html styles.css systemjs.config.js address-ui-dist/
+cp -r node_modules address-ui-dist/
+cp -r app address-ui-dist/
+cp -r images address-ui-dist/
+cd address-ui-dist/app && find . -name \"*.ts\" | xargs rm
+
 echo
 echo "===> Build completed at $(date)"
 
