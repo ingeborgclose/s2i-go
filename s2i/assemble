@@ -44,6 +44,7 @@ cp -r node_modules address-ui-dist/
 cp -r app address-ui-dist/
 cp -r images address-ui-dist/
 cd address-ui-dist/app && find . -name "*.ts" | xargs rm
+cd ../..
 mv address-ui-dist $GOPATH/bin
 
 echo
